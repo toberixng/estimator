@@ -36,7 +36,10 @@ module.exports = {
     "max-len": "off",
     "no-unused-vars": "off",
     "no-alert": "off",
-    "no-multiple-empty-lines": "off"
+    "no-multiple-empty-lines": "off",
+    "no-spaced-func": "off",
+    "func-call-spacing": "off",
+    "no-console": "off"
 
   },
 };
