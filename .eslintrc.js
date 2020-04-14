@@ -40,6 +40,5 @@ module.exports = {
     "no-spaced-func": "off",
     "func-call-spacing": "off",
     "no-console": "off"
-
   },
 };
