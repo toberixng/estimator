@@ -20,6 +20,23 @@ module.exports = {
     "comma-dangle": ["error", "never"],
     "no-param-reassign": ["error", { "props": false }],
     "linebreak-style": "off",
-    "eol-last": "off"
+    "eol-last": "off",
+    "camelcase": "off",
+    "space-before-blocks": "off",
+    "no-trailing-spaces": "off",
+    "indent": "off",
+    "no-param-reassign": "off",
+    "no-return-assign": "off",
+    "arrow-parens": "off",
+    "no-shadow": "off",
+    "keyword-spacing": "off",
+    "no-use-before-define": "off",
+    "semi": "off",
+    "no-extra-semi": "off",
+    "max-len": "off",
+    "no-unused-vars": "off",
+    "no-alert": "off",
+    "no-multiple-empty-lines": "off"
+
   },
 };
