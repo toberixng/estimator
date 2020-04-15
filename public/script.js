@@ -12,13 +12,13 @@ const showError = (input, message) => {
   small.innerText = message;
 }
 
-//Show success outline
+// Show success outline
 const showSuccess = (input, message) => {
   const formControl = input.parentElement;
   formControl.className = 'form-control success'; 
 }
 
-//Check email is valid
+// Check email is valid
 function checkEmail(input) {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (re.test(input.value.trim())) {
