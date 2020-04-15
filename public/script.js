@@ -1,114 +1,68 @@
-const balance = document.getElementById('balance');
-const money_plus = document.getElementById('money-plus');
-const money_minus = document.getElementById('money-minus');
-const list = document.getElementById('list');
-const form = document.getElementById('form');
-const text = document.getElementById('text');
-const amount = document.getElementById('amount');
+const form = document.querySelector('#form');
+const username = document.querySelector('#username');
+const email = document.querySelector('#email');
+const password = document.querySelector('#password');
+const password2 = document.querySelector('#password2');
 
+// Show input Error Message
+const showError = (input, message) => {
+  const formControl = input.parentElement;
+  formControl.className = 'form-control error';
+  const small = formControl.querySelector('small');
+  small.innerText = message;
+}
 
-const dummyTransactions = [
-  { id: 1, text: 'Flower', amount: -20 },
-  { id: 2, text: 'Salary', amount: 300 },
-  { id: 3, text: 'Book', amount: -10 },
-  { id: 4, text: 'Camera', amount: 150 }
-];
+//Show success outline
+const showSuccess = (input, message) => {
+  const formControl = input.parentElement;
+  formControl.className = 'form-control success'; 
+}
 
-let transactions = dummyTransactions;
-
-
-// Add Transaction manually
-function addTransaction(e){
-  e.preventDefault();
-  
-
-  if(text.value.trim() === '' || amount.value.trim() === ''){
-    alert('Please Enter Text and Amount');
+//Check email is valid
+function checkEmail(input) {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (re.test(input.value.trim())) {
+    showSuccess(input);
   } else {
-    const transaction = {
-      id: generateID(),
-      text: text.value,
-      amount: +amount.value
-    }
-    transactions.push(transaction);
-
-    addTransactionDOM(transaction);
-
-    updateValues()
-
-    text.value = '';
-    amount.value = '';    
+    showError(input, 'Email is not valid');
   }
+}
+
+const checkRequired = (inputArr) => {
+  inputArr.forEach((input) => {
+    return (input.value.trim() === '') ?  
+    showError(input, `${getFieldName(input)} is required`) :
+    showSuccess(input);
+  })
+}
+
+const checkLength = (input, min, max) => {
+  return (input.value.length < min) ? 
+  showError(input, `${getFieldName(input)} must be at lease ${min} characters`) : 
+  (input.value.length > max) ? 
+  showError(input, `${getFieldName(input)} must not be greater than ${max} characters`) :
+  showSuccess(input);
 };
 
-// Generate random ID
-function generateID() {
-  return Math.floor(Math.random() * 100000000);
+const checkPasswordsMatch = (input1, input2) => {
+ return (input1.value !== input2.value) ? 
+ showError(input2, 'Password must match') :
+ showSuccess(input);
+}
+//Capitalised field
+const getFieldName = (input) => {
+  return input.id.charAt(0).toUpperCase() + input.id.slice(1)
 }
 
-// Add transactions to DOM list
-function addTransactionDOM(transaction) {
-  // Get sign
-  const sign = transaction.amount < 0 ? '-' : '+';
+// event listener
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
 
-  const item = document.createElement('li');
-
-  // Add class based on value
-  item.classList.add(transaction.amount < 0 ? 'minus' : 'plus');
-
-  item.innerHTML = `
-    ${transaction.text} <span>${sign}${Math.abs(
-    transaction.amount
-  )}</span> <button class="delete-btn" onclick="removeTransaction(${
-    transaction.id
-  })">x</button>
-  `;
-
-  list.appendChild(item);
-}
-
-// Update the balance, income and expense
-function updateValues() {
-  const amounts = transactions.map(transaction => transaction.amount);
-
-  const total = amounts.reduce((accu, item) => (accu += item), 0).toFixed(2);
-
-  const income = amounts
-    .filter(amount => amount > 0)
-    .reduce((accu, item) => (accu += item), 0)
-    .toFixed(2);
-
-  const expense = (amounts
-    .filter(amount => amount < 0)
-    .reduce((accu, item) => (accu += item), 0) * -1)
-    .toFixed(2);
-
-    // console.log(`Expense: ${expense} Income: ${income} Total: ${total} Individual Amount: ${amounts}`)
-  
-    balance.innerText = `$${total}`;
-    money_plus.innerText = `$${income}`;
-    money_minus.innerText = `$${expense}`;
-}
-
-// Remove transaction by ID
-function removeTransaction(id) {
-  transactions = transactions.filter(transaction => transaction.id !== id);
-
-  init();
-}
-
-
-// Init app
-function init() {
-  list.innerHTML = '';
-
-  transactions.forEach(addTransactionDOM);
-  updateValues();
-}
-
-init();
-
-form.addEventListener('submit', addTransaction)
-
+  checkRequired([username, email, password, password2]);
+  checkLength(username, 3, 15);
+  checkLength(password, 6, 25);
+  checkEmail(email);
+  checkPasswordsMatch(password, password2);
+})
 
 
