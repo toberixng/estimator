@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Covid Estimator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  </head>
+  <body>
+    <h3>Covid-19 Estimator</h3>
+
+    <div class="container">
+    <div class="container-impact-severe">
+      <div id="myBtnContainer">
+        <button class="btn2 active" onclick="filterSelection('impact')"> Impact</button>
+        <button class="btn2" onclick="filterSelection('severe')"> Severe Impact</button>
+      </div>
+
+
+      <div class="div-wrapper">
+        <div class="inc-exp-container impact-filtering">
+          <h4>Infected</h4>
+          <p id="money-plus" class="money plus">0</p>
+        </div>
+        <div class="inc-exp-container impact-filtering">
+          <h4>time</h4>
+          <p id="money-minus" class="money plus">0</p>
+        </div>
+        <div class="inc-exp-container impact-filtering">
+          <h4>Severe Cases</h4>
+          <p id="money-plus" class="money plus">0</p>
+        </div>
+        <div class="inc-exp-container impact-filtering">
+          <h4>Hospital Bed</h4>
+          <p id="money-plus" class="money plus">0</p>
+        </div>
+        <div class="inc-exp-container impact-filtering">
+          <h4>ICU cases</h4>
+          <p id="money-plus" class="money plus">0</p>
+        </div>
+        <div class="inc-exp-container impact-filtering">
+          <h4>Vent cases</h4>
+          <p id="money-plus" class="money plus">0</p>
+        </div>
+        <div class="inc-exp-container impact7 impact-filtering">
+          <h4>$ Impact</h4>
+          <p id="money-plus" class="money plus">0</p>
+        </div>
+
+
+        <div class="inc-exp-container severe">
+          <h4>Infected</h4>
+          <p id="money-minus" class="money minus">0</p>
+        </div>
+        <div class="inc-exp-container severe">
+          <h4>time</h4>
+          <p id="money-minus" class="money minus">0</p>
+        </div>
+        <div class="inc-exp-container severe">
+          <h4>Severe Cases</h4>
+          <p id="money-minus" class="money minus">0</p>
+        </div>
+        <div class="inc-exp-container severe">
+          <h4>Hospital Bed</h4>
+          <p id="money-minus" class="money minus">0</p>
+        </div>
+        <div class="inc-exp-container severe">
+          <h4>ICU cases</h4>
+          <p id="money-minus" class="money minus">0</p>
+        </div>
+        <div class="inc-exp-container severe">
+          <h4>Vent cases</h4>
+          <p id="money-minus" class="money minus">0</p>
+        </div>
+        <div class="inc-exp-container severe7 severe">
+          <h4>$ Severe Impact</h4>
+          <p id="money-minus" class="money minus">0</p>
+        </div>
+      </div>
+
+      </div>
+
+    </div>
+
+
+      <form id="form">
+        <div class="form-control">
+          <label for="population">
+            Population</label>
+          <input 
+          type="number" 
+          id="population" 
+          placeholder="Enter value..." 
+          data="data-population"/>
+          <small>Error message</small>
+        </div>
+  
+        <div class="form-control">
+          <label for="timeToElapse">Elapse Time</label>
+          <input 
+          type="number" 
+          id="timeToElapse" 
+          placeholder="Enter value..." 
+          data="data-time-to-elapse"/>
+          <small>Error message</small>
+        </div>
+
+        <div class="form-control">
+          <label for="reportedCases">Reported Cases</label>
+          <input 
+          type="number" 
+          id="reportedCases" 
+          placeholder="Enter value..." 
+          data="data-reported-cases"/>
+          <small>Error message</small>
+        </div>
+
+        <div class="form-control">
+          <label for="totalHospitalBeds">Total Beds</label>
+          <input 
+          type="number" 
+          id="totalHospitalBeds" 
+          placeholder="Enter value..." 
+          data="data-total-hospital-beds"/>
+          <small>Error message</small>
+        </div>
+
+        <div class="form-control">
+          <label for="periodType">Total Beds</label>
+          <select id="periodType">
+            <option value="days" selected>Days</option>
+            <option value="Weeks">Weeks</option>
+            <option value="months">Months</option>
+          </select>
+        </div>
+          
+        <button class="btn" data="data-goestimate">Data Estimate</button>
+      </form>
+    </div>
+    <script type="module" src="estimator.js"></script>
+    <script src="filtering.js"></script>
+  </body>
+</html>

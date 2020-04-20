@@ -39,6 +39,11 @@ module.exports = {
     "no-multiple-empty-lines": "off",
     "no-spaced-func": "off",
     "func-call-spacing": "off",
-    "no-console": "off"
+    "no-console": "off",
+    "arrow-body-style": "off",
+    "operator-linebreak": "off",
+    "quotes": "off",
+    "comma-dangle": "off",
+    "padded-blocks": "off"
   },
 };
