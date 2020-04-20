@@ -73,7 +73,6 @@ const covid19ImpactEstimator = (data) => {
 };
 
 export default covid19ImpactEstimator;
-
 const form = document.querySelector('#form');
 const population = document.querySelector('#population');
 const timeToElapse = document.querySelector('#timeToElapse');
@@ -107,6 +106,9 @@ const checkRequired = (inputArr) => {
 
 const addValue = (e) => {
   e.preventDefault()
+
+
+
   const data = {
     region: {
       name: "Africa",
@@ -121,16 +123,9 @@ const addValue = (e) => {
     population: +population.value, 
   }
 
-  
+  console.log(covid19ImpactEstimator(data))
   checkRequired([population, timeToElapse, reportedCases, totalHospitalBeds, periodType]);
 
-  reportedCases.value = ''
-  timeToElapse.value = ''
-  totalHospitalBeds.value = ''
-  population.value = ''
-
-  console.log(covid19ImpactEstimator(data))
 }
 
 form.addEventListener('submit', addValue)
-
