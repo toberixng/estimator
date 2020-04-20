@@ -54,3 +54,5 @@ const addValue = (e) => {
 }
 
 form.addEventListener('submit', addValue)
+
+module.exports = addValue;
