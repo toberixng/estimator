@@ -44,6 +44,9 @@ module.exports = {
     "operator-linebreak": "off",
     "quotes": "off",
     "comma-dangle": "off",
-    "padded-blocks": "off"
+    "padded-blocks": "off",
+    "no-plusplus": "off",
+    "prefer-template": "off",
+    "func-names" : "off"
   },
 };
