@@ -1,5 +1,4 @@
-// import covid19ImpactEstimator from './estimator';
-const covid19ImpactEstimator = require('./estimator')
+import covid19ImpactEstimator from './estimator';
 
 const form = document.querySelector('#form');
 const population = document.querySelector('#population');
@@ -34,9 +33,6 @@ const checkRequired = (inputArr) => {
 
 const addValue = (e) => {
   e.preventDefault()
-
-
-
   const data = {
     region: {
       name: "Africa",
@@ -51,9 +47,8 @@ const addValue = (e) => {
     population: +population.value, 
   }
 
-  console.log(covid19ImpactEstimator(data))
+  
   checkRequired([population, timeToElapse, reportedCases, totalHospitalBeds, periodType]);
-
+  console.log(covid19ImpactEstimator(data))
 }
-
 form.addEventListener('submit', addValue)
