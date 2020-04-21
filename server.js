@@ -8,6 +8,7 @@ const app = express()
 //   res.send('<h1>Hello World</h1>')
 // });
 
+app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'src')))
 
 const PORT = process.env.PORT || 5000;
