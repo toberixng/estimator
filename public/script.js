@@ -120,9 +120,13 @@ const addValue = (e) => {
     population: +population.value, 
   }
 
+      console.log(covid19ImpactEstimator(data))
   checkRequired([population, timeToElapse, reportedCases, totalHospitalBeds, periodType]);
+  reportedCases.value = ''
+  timeToElapse.value = ''
+  totalHospitalBeds.value = ''
+  population.value = ''
 
-  console.log(covid19ImpactEstimator(data))
 }
 
 form.addEventListener('submit', addValue)
