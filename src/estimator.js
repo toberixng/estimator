@@ -6,27 +6,27 @@ const totalHospitalBeds = document.querySelector('#totalHospitalBeds');
 const periodType = document.querySelector('#periodType');
 
 // Show input Error Message
-const showError = (input, message) => {
-  const formControl = input.parentElement;
-  formControl.className = 'form-control error';
-  const small = formControl.querySelector('small');
-  small.innerText = message;
-}
+// const showError = (input, message) => {
+//   const formControl = input.parentElement;
+//   formControl.className = 'form-control error';
+//   const small = formControl.querySelector('small');
+//   small.innerText = message;
+// }
 
 // Show success outline
-const showSuccess = (input, message) => {
-  const formControl = input.parentElement;
-  formControl.className = 'form-control success'; 
-}
+// const showSuccess = (input, message) => {
+//   const formControl = input.parentElement;
+//   formControl.className = 'form-control success'; 
+// }
 
 // check each of the field for success or error input
-const checkRequired = (inputArr) => {
-  inputArr.forEach((input) => {
-    return (input.value.trim() === '') ?  
-    showError(input, 'This Field is required') :
-    showSuccess(input);
-  })
-};
+// const checkRequired = (inputArr) => {
+//   inputArr.forEach((input) => {
+//     return (input.value.trim() === '') ?  
+//     showError(input, 'This Field is required') :
+//     showSuccess(input);
+//   })
+// };
 
 const addValue = (e) => {
   e.preventDefault()
@@ -46,7 +46,7 @@ const addValue = (e) => {
   }
 
   console.log(covid19ImpactEstimator(data))
-  checkRequired([population, timeToElapse, reportedCases, totalHospitalBeds, periodType]);
+  // checkRequired([population, timeToElapse, reportedCases, totalHospitalBeds, periodType]);
 
 }
 
