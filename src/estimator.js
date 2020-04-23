@@ -4,7 +4,7 @@ const covid19ImpactEstimator = (data) => {
     timeToElapse,
     periodType,
     totalHospitalBeds,
-    region, 
+    region
   } = data;
   let factor;
   let period;
@@ -73,5 +73,3 @@ const covid19ImpactEstimator = (data) => {
 };
 
 export default covid19ImpactEstimator;
-
-
