@@ -122,6 +122,7 @@ const addValue = (e) => {
 
       console.log(covid19ImpactEstimator(data))
   checkRequired([population, timeToElapse, reportedCases, totalHospitalBeds, periodType]);
+  
   reportedCases.value = ''
   timeToElapse.value = ''
   totalHospitalBeds.value = ''
